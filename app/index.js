@@ -1,10 +1,11 @@
-var React = require("react");
-var ReactDOM = require("react-dom");
+var React = require('react');
+var ReactDOM = require('react-dom');
+var routes = require('./config/routes');
 
 var USER_DATA = {
-  name: "Tyler",
+  name: 'Tyler',
   username: 'tylermcgininis',
-  image: "https://avatars3.githubusercontent.com/u/71809?v=3&s=460"
+  image: 'https://avatars3.githubusercontent.com/u/71809?v=3&s=460'
 };
 
 var ProfilePic = function(props) {
@@ -29,4 +30,6 @@ var Avatar = function(props) {
     );
   }
 
-ReactDOM.render( <Avatar user={USER_DATA} anyOtherSortOfData={9} /> ,  document.getElementById('app'));
+//console.log(routes);
+//ReactDOM.render( <Avatar user={USER_DATA} anyOtherSortOfData={9} /> ,  document.getElementById('app'));
+ReactDOM.render( routes ,      document.getElementById('app'));
