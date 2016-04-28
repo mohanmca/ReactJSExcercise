@@ -1,8 +1,6 @@
 var React = require("react")
 var Prompt = require("../components/Prompt")
 
-//var ReactRouter = require('react-router')
-
 var PromptContainer = React.createClass({
 	contextTypes:  {
 		router: React.PropTypes.object.isRequired
