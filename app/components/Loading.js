@@ -40,18 +40,22 @@ var Loading = React.createClass({
     var stopper = this.originalText + '...';
     this.interval = setInterval(function() {
       if(this.state.text === stopper) {
-        this.setState({
-          text: this.originalText
-        })
+        if (this.isMounted()) {
+          this.setState({
+            text: this.originalText
+          })
+        }
       } else {
-        this.setState({
-          text: this.state.text +"."
-        })
+        if (this.isMounted()) {
+          this.setState({
+            text: this.state.text + "."
+          })
+        }
       }
     }.bind(this), this.props.speed);
   },
   componentWillMount: function(){
-    clearInteval(this.interval);
+    clearInterval(this.interval);
   },
   render: function() {
     return (

@@ -3,6 +3,8 @@ var PropTypes = React.PropTypes;
 var styles = require('../styles')
 var MainContainer = require('./MainContainer')
 var Loading = require('./Loading')
+var UserDetails = require('./UserDetails');
+var UserDetailsWrapper = require('./UserDetailsWrapper');
 
 // function puke(obj) {
 //   return <pre>{JSON.stringify(obj, null, "  ")}</pre>;
@@ -18,7 +20,7 @@ function StartOver(props) {
   )
 }
 
-var Result = function(props) {
+var Results = function(props) {
   if(props.isLoading) {
     return (
           <MainContainer>
@@ -55,10 +57,10 @@ var Result = function(props) {
   )
 }
 
-Result.propTypes = {
+Results.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   playersInfo: PropTypes.array.isRequired,
   scores: PropTypes.array.isRequired
 }
 
-module.exports = Result;
+module.exports = Results;

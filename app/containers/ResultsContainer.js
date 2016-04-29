@@ -1,11 +1,11 @@
 var React = require("react")
-var Result = require("../components/Result")
+var Results = require("../components/Results")
 var githubHelpers = require('../utils/githubHelpers')
 
-var ResultContainer = React.createClass({
+var ResultsContainer = React.createClass({
 	getInitialState : function() {
 		return {
-			isLoading: false,
+			isLoading: true,
       scores: []
 		}
 	},
@@ -17,17 +17,16 @@ var ResultContainer = React.createClass({
           isLoading : false
         }
       ))
-
   },
 	render : function() {
      return (
-    		<Result
+    		<Results
 					isLoading={this.state.isLoading}
-          scores={this.state.scores}
 					playersInfo={this.props.location.state.playersInfo}
+			        scores={this.state.scores}
 					/>
      );
    }
 })
 
-module.exports = ResultContainer;
+module.exports = ResultsContainer;

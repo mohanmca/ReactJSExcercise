@@ -1,5 +1,5 @@
-var React = require("react")
-var Prompt = require("../components/Prompt")
+var React = require('react')
+var Prompt = require('../components/Prompt')
 
 var PromptContainer = React.createClass({
 	contextTypes:  {
@@ -9,7 +9,7 @@ var PromptContainer = React.createClass({
 		event.preventDefault();
 		this.setState({username: event.target.value});
 	},
-	handleSubmitUser(event) {
+	handleSubmitUser: function(event) {
 		event.preventDefault();
 		var username = this.state.username;
 		this.setState({username: ''});

@@ -1,7 +1,8 @@
 var React = require('react')
-var ConfirmBattle = require('../components/ConfirmBattle');
-var UserDetailsWrapper = require('../components/UserDetailsWrapper');
-var UserDetails = require('../components/UserDetails');
+var ConfirmBattle = require('./ConfirmBattle');
+var UserDetails = require('./UserDetails');
+var UserDetailsWrapper = require('./UserDetailsWrapper');
+var MainContainer = require('./MainContainer');
 var PropTypes = React.PropTypes
 var styles = require('../styles/index')
 var Link = require('react-router').Link
@@ -12,10 +13,10 @@ function puke(obj) {
   return <pre>{JSON.stringify(obj, null, "  ")}</pre>;
 }
 
-var ConfirimBattle =  function(props) {
+var ConfirmBattle =  function(props) {
     return props.isLoading === true
       ? <Loading speed={800} text='Waiting'/>
-    :  <div className="jumbotron col-sm-12 text-center" style={styles.transparentBg}>
+    :   <MainContainer>
         <h1>Confirm Players</h1>
         <div className='col-sm-8 col-sm-offset-2'>
           <UserDetailsWrapper header='Player 1'>
@@ -38,13 +39,13 @@ var ConfirimBattle =  function(props) {
             </Link>
           </div>
         </div>
-      </div>
+      </MainContainer>
 }
 
-ConfirimBattle.propTypes = {
+ConfirmBattle.propTypes = {
   isLoading: PropTypes.bool.isRequired,
-  playersInfo: PropTypes.array.isRequired,
-  onIntitiateBattle: PropTypes.func.isRequired
+  onInitiateBattle: PropTypes.func.isRequired,
+  playersInfo: PropTypes.array.isRequired
 }
 
-module.exports = ConfirimBattle;
+module.exports = ConfirmBattle;
