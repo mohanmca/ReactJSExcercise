@@ -1,5 +1,4 @@
 var React = require('react');
-var transparentBg = require('../styles/index').transparentBg
 var ReactCSSTranisitionGroup = require('react-addons-css-transition-group');
 require('../main.css')
 

@@ -5,6 +5,10 @@ This idea is so important in React that React 0.14 introduced Stateless Function
 npm cache clean
 npm start
 npm install --save axios
+npm install --save react-addons-css-transition-group
+npm install --save css-loader style-loader
+npm install --save-dev css-loader style-loader
+
 
 
 FIRST - UI rules
@@ -75,3 +79,13 @@ var FriendsList = React.createClass({
     ...
   }
 })
+
+Private Components
+
+
+---
+Presentational and Container Components - Dan Abramov
+Full Stack Redux Tutorial - Teropa Parviainen
+9 Things every React Beginner should Know - Cam Jackson
+Functional Programming is Taking Over UIs with Pure Views
+Optimizing React Performance - Jae Hun Ro

@@ -14,7 +14,7 @@ var Prompt = function(props) {
                 type="text" onChange={props.onUpdateUser}/>
             </div>
             <div className="form-group col-sm-4 col-sm-offset-4">
-              <button className="btn btn-block btn-succcess" type="Submit" >
+              <button className="btn btn-lg btn-success" type="submit" >
                  Continue
               </button>
             </div>
@@ -25,10 +25,10 @@ var Prompt = function(props) {
 }
 
 Prompt.propTypes = {
-  header : PropTypes.string.isRequired,
   onSubmitUser : PropTypes.func.isRequired,
-  username : PropTypes.string.isRequired,
-  onUpdateUser : PropTypes.func.isRequired
+  onUpdateUser : PropTypes.func.isRequired,
+  header : PropTypes.string.isRequired,
+  username : PropTypes.string.isRequired
 }
 
 module.exports = Prompt;

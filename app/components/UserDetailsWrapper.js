@@ -14,4 +14,4 @@ UserDetailsWrapper.propTypes = {
   header: PropTypes.string.isRequired
 }
 
-module.exports = UserDetailsWrapper
+module.exports = UserDetailsWrapper;
