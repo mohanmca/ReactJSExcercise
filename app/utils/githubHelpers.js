@@ -1,7 +1,7 @@
 var axios = require('axios');
 
-var id = "YOUR_CLIENT_ID";
-var sec = "YOUR_SECRET_ID";
+var id = "mohanmca";
+var sec = "secret";
 var param = "?client_id=" + id + "&client_secret=" + sec;
 
 function getUserInfo (username) {
@@ -30,10 +30,12 @@ function getPlayersData (player) {
 }
 
 function calculateScores (players) {
-  return [
+  var scores = [
     players[0].followers * 3 + players[0].totalStars,
     players[1].followers * 3 + players[1].totalStars
   ]
+  console.log(scores);
+  return scores;
 }
 
 var helpers = {

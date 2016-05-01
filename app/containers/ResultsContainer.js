@@ -10,11 +10,10 @@ var ResultsContainer = React.createClass({
 		}
 	},
   componentDidMount : function() {
-		console.log(ResultsContainer + "mounted");
     githubHelpers.battle(this.props.location.state.playersInfo)
       .then(scores => this.setState(
         {
-          scoes : scores,
+          scores : scores,
           isLoading : false
         }
       ))

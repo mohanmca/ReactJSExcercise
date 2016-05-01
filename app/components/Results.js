@@ -27,6 +27,8 @@ var Results = function(props) {
     return (<Loading />)
   }
 
+  console.log(props.scores);
+
   if(props.scores[0] === props.scores[1]) {
       return (
           <MainContainer>
@@ -44,10 +46,10 @@ var Results = function(props) {
           <h1>Results</h1>
           <div className="col-sm-8 col-sm-offset-2">
             <UserDetailsWrapper header='Winner'>
-              <UserDetails  info={props.scores[winningIndex]} info={props.playersInfo[winningIndex]} />
+              <UserDetails  score={props.scores[winningIndex]} info={props.playersInfo[winningIndex]} />
             </UserDetailsWrapper>
             <UserDetailsWrapper header='Looser'>
-              <UserDetails info={props.scores[losingIndex]} info={props.playersInfo[losingIndex]}/>
+              <UserDetails score={props.scores[losingIndex]} info={props.playersInfo[losingIndex]}/>
             </UserDetailsWrapper>
           </div>
           <StartOver />
