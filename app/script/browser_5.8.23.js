@@ -33034,6 +33034,7 @@ module.exports = function(object, el){
 },{"./$":265,"./$.to-iobject":295}],267:[function(require,module,exports){
 module.exports = false;
 },{}],268:[function(require,module,exports){
+<<<<<<< HEAD
 // 20.2.2.20 Math.log1p(x)
 module.exports = Math.log1p || function log1p(x){
   return (x = +x) > -1e-8 && x < 1e-8 ? x - x * x / 2 : Math.log(1 + x);
@@ -33085,6 +33086,59 @@ module.exports = function asap(fn){
     head = task;
     notify();
   } last = task;
+=======
+// 20.2.2.20 Math.log1p(x)
+module.exports = Math.log1p || function log1p(x){
+  return (x = +x) > -1e-8 && x < 1e-8 ? x - x * x / 2 : Math.log(1 + x);
+};
+},{}],269:[function(require,module,exports){
+var global    = require('./$.global')
+  , macrotask = require('./$.task').set
+  , Observer  = global.MutationObserver || global.WebKitMutationObserver
+  , process   = global.process
+  , head, last, notify;
+
+function flush(){
+  while(head){
+    head.fn.call(); // <- currently we use it only for Promise - try / catch not required
+    head = head.next;
+  } last = undefined;
+}
+
+// Node.js
+if(require('./$.cof')(process) == 'process'){
+  notify = function(){
+    process.nextTick(flush);
+  };
+// browsers with MutationObserver
+} else if(Observer){
+  var toggle = 1
+    , node   = document.createTextNode('');
+  new Observer(flush).observe(node, {characterData: true}); // eslint-disable-line no-new
+  notify = function(){
+    node.data = toggle = -toggle;
+  };
+// for other environments - macrotask based on:
+// - setImmediate
+// - MessageChannel
+// - window.postMessag
+// - onreadystatechange
+// - setTimeout
+} else {
+  notify = function(){
+    // strange IE + webpack dev server bug - use .call(global)
+    macrotask.call(global, flush);
+  };
+}
+
+module.exports = function asap(fn){
+  var task = {fn: fn, next: undefined};
+  if(last)last.next = task;
+  if(!head){
+    head = task;
+    notify();
+  } last = task;
+>>>>>>> 0cccc20dcbae470801bf554020fec49792c3b68c
 };
 },{"./$.cof":232,"./$.global":249,"./$.task":292}],270:[function(require,module,exports){
 var $redef = require('./$.redef');
@@ -33450,11 +33504,19 @@ module.exports = function(it){
   return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
 };
 },{}],295:[function(require,module,exports){
+<<<<<<< HEAD
 // to indexed object, toObject with fallback for non-array-like ES3 strings
 var IObject = require('./$.iobject')
   , defined = require('./$.defined');
 module.exports = function(it){
   return IObject(defined(it));
+=======
+// to indexed object, toObject with fallback for non-array-like ES3 strings
+var IObject = require('./$.iobject')
+  , defined = require('./$.defined');
+module.exports = function(it){
+  return IObject(defined(it));
+>>>>>>> 0cccc20dcbae470801bf554020fec49792c3b68c
 };
 },{"./$.defined":240,"./$.iobject":254}],296:[function(require,module,exports){
 // 7.1.15 ToLength
